@@ -15,9 +15,8 @@ function App() {
         fetch("http://localhost:8080/api/mahasiswa")
             .then((response) => response.json())
             .then((data) => {
-                setMahasiswa(data.data || []);
+                setMahasiswa(data.data);
             })
-            .catch((error) => console.error("Error GET:", error));
     }, []);
 
     // 2. Menambahkan mahasiswa (POST)
@@ -49,7 +48,7 @@ function App() {
                 "http://localhost:8080/api/mahasiswa"
             );
             const dataMahasiswa = await responseMahasiswa.json();
-            setMahasiswa(dataMahasiswa.data || []);
+            setMahasiswa(dataMahasiswa.data);
 
             // Mengosongkan form
             setNama("");
@@ -79,7 +78,7 @@ function App() {
                 "http://localhost:8080/api/mahasiswa"
             );
             const dataMahasiswa = await responseMahasiswa.json();
-            setMahasiswa(dataMahasiswa.data || []);
+            setMahasiswa(dataMahasiswa.data);
         }
     };
 
